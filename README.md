@@ -14,13 +14,13 @@ Wij hebben besloten om de eenzaamheid van studenten aan te pakken. Je hoort tege
 
 
 ### Roles
-Chinou: Backend Development, Frontend Development & Testing
-Heba: Audience Analysis & Promotion Material
-Kevin: Server Hosting & Security
-Niels: Frontend Development & Website Mockup
-Nour: Data Analysis, Process design & <strong>K</strong>ey <strong>P</strong>erformance <strong>I</strong>ndicators
-Susan: Corporate design, Website Mockup & Promotion Material
-Viggo: Backend Development & Promotion Material
+- <strong>Chinou</strong>: Backend Development, Frontend Development & Testing
+- <strong>Heba</strong>: Audience Analysis & Promotion Material
+- <strong>Kevin</strong>: Server Hosting & Security
+- <strong>Niels</strong>: Frontend Development & Website Mockup
+- <strong>Nour</strong>: Data Analysis, Process design & <strong>K</strong>ey <strong>P</strong>erformance <strong>I</strong>ndicators
+- <strong>Susan</strong>: Corporate design, Website Mockup & Promotion Material
+- <strong>Viggo</strong>: Backend Development & Promotion Material
 
 
 
