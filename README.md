@@ -24,4 +24,6 @@ Wij hebben besloten om de eenzaamheid van studenten aan te pakken. Je hoort tege
 
 
 
+***
+
 Made with ❤ by Chinou, Heba, Kevin, Niels, Nour, Susan and Viggo
