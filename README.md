@@ -11,6 +11,7 @@ Wij hebben besloten om de eenzaamheid van studenten aan te pakken. Je hoort tege
 * [RStudio](https://www.rstudio.com/)
 * [Adobe Illustrator](https://www.adobe.com/nl/products/illustrator.html)
 * [Adobe Photoshop](https://www.adobe.com/nl/products/photoshop.html)
+* [Microsoft Visio](https://www.microsoft.com/nl-nl/microsoft-365/visio/flowchart-software)
 
 
 ### Roles
