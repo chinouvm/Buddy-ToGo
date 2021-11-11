@@ -10,11 +10,11 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <ul>
-        <li>
-          <Link href="/">
-            <button className="btn-logo">Buddy ToGo™</button>
-          </Link>
-        </li>
+        <Link href="/">
+          <li className="link">
+            <img className="logo" src="navlogo.png" />
+          </li>
+        </Link>
 
         {/* user is signed-in and has username */}
         {username && (
@@ -24,7 +24,7 @@ export default function Navbar() {
             </li>
             <li>
               <Link href={`/${username}`}>
-                <img src={user?.photoURL} />
+                <img className="profile" src={user?.photoURL} />
               </Link>
             </li>
           </>

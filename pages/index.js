@@ -4,6 +4,7 @@ import { useCallback, useContext, useEffect, useState } from 'react';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { UserContext } from '../lib/context';
 import Login from './login';
+import Navbar from '../components/Navbar';
 import toast from 'react-hot-toast';
 import FriendList from '../components/FriendList';
 
@@ -12,13 +13,14 @@ export default function Home() {
 
   if (!username) return <Login />;
   return (
-    <main>
-      <div>
-        <h1>Home Page!</h1>
-        <p>User is signed in!</p>
-        <FriendForm />
-      </div>
-    </main>
+    <>
+      <Navbar />
+      <main>
+        <div>
+          <FriendForm />
+        </div>
+      </main>
+    </>
   );
 }
 
@@ -61,27 +63,27 @@ function FriendForm() {
       });
 
       await batch.commit();
-      toast.success(`Send a friendrequest to ${formValue}!!`, {
+      toast.success(`Buddy verzoek verstuurd naar ${formValue}!`, {
         style: {
           borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
+          color: '#000',
+          minWidth: '450px',
         },
       });
     } else if (formValue == username) {
-      toast.error('You cannot add yourself as a friend :(', {
+      toast.error('Je kunt niet jezelf als buddy toevoegen :(', {
         style: {
           borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
+          color: '#000',
+          minWidth: '450px',
         },
       });
     } else {
-      toast.error('You already are friends with this person!', {
+      toast.error('Deze persoon is al een van jouw buddies!', {
         style: {
           borderRadius: '10px',
-          background: '#333',
-          color: '#fff',
+          color: '#000',
+          minWidth: '450px',
         },
       });
     }
@@ -142,28 +144,40 @@ function FriendForm() {
   );
 
   return (
-    <section>
-      <h3>Add a friend!</h3>
-      <form onSubmit={onSubmit}>
-        <input
-          name="username"
-          placeholder="Username you want to add..."
-          onChange={onChange}
-          value={formValue}
-        />
+    <>
+      <h3>Add Friend</h3>
+      <form onSubmit={onSubmit} autoComplete="off">
+        <div className="input-container ic2">
+          <input
+            id="name"
+            type="text"
+            placeholder=" "
+            name="username"
+            className="friendInput"
+            onChange={onChange}
+            value={formValue}
+          />
+          <div className="cutlong"></div>
+          <label htmlFor="name" className="placeholder">
+            Gebruikersnaam
+          </label>
+        </div>
         {/* Display message when something is fucky wucky */}
         <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
         {/* Button will be disabled when form is not valid (!isValid)*/}
-        <button type="submit" className="btn-green" disabled={!isValid}>
-          Add friend
+        <button type="submit" className="btn-main" disabled={!isValid}>
+          Buddy toevoegen
         </button>
       </form>
-      {/* List of Friends */}
-      {friendshipsSnapshot?.docs.map((friendship) => (
-        <FriendList key={friendship.id} id={friendship.id} users={friendship.data().users} />
-      ))}
-    </section>
+      <h1>Buddy lijst</h1>
+      <div className="cardwrapper">
+        {/* List of Friends */}
+        {friendshipsSnapshot?.docs.map((friendship) => (
+          <FriendList key={friendship.id} id={friendship.id} users={friendship.data().users} />
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -171,11 +185,11 @@ function FriendForm() {
 
 function UsernameMessage({ username, isValid, loading }) {
   if (loading) {
-    return <p>Checking...</p>;
+    return <p>Checken...</p>;
   } else if (isValid) {
-    return <p className="text-success">{username} exists!</p>;
+    return <p className="text-success">{username} bestaat!</p>;
   } else if (username && !isValid) {
-    return <p className="text-danger">That user does not exist!</p>;
+    return <p className="text-danger">Deze gebruiker bestaat niet!</p>;
   } else {
     return <p></p>;
   }

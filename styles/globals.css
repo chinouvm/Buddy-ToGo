@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
 
 :root {
-  --color-bg: #eef0f1;
+  --color-bg: #fff;
   --color-text: #08090a;
   --color-blue: #3b49df;
   --color-red: #df3b3b;
   --color-green: #3bdf72;
   --color-gray: #b5bdc4;
+  --color-main: #c559a1;
 }
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
-  margin-top: 50px;
 }
 
 main {
@@ -65,14 +65,51 @@ code {
   overflow-x: scroll;
 }
 
+div .logincontainer {
+  background-color: var(--color-main);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 10;
+}
+
+.imgcontainer {
+  height: 100vh;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  height: 35%;
+  position: relative;
+  align-self: center;
+  user-select: none;
+  pointer-events: none;
+}
+
+.enter {
+  height: 15%;
+  margin-left: 600px;
+  align-self: center;
+  float: right;
+  margin-bottom: 100px;
+}
+
+.enter:hover {
+  filter: brightness(110%);
+  cursor: pointer;
+}
+
 /* Navbar */
 
 .navbar {
   height: 70px;
   width: 100%;
-  background: white;
+  background: var(--color-main);
   color: var(--colors-text);
-  position: fixed;
+  position: sticky;
   top: 0;
   padding: 0 10vw;
   font-weight: bold;
@@ -90,10 +127,13 @@ code {
   height: 100%;
 }
 
-.navbar img {
+.profile {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  cursor: pointer;
+}
+li.link {
   cursor: pointer;
 }
 
@@ -105,19 +145,19 @@ code {
 
 .btn,
 button {
-  background-color: var(--color-gray);
+  background-color: #fff;
   border: none;
-  color: var(--color-text);
+  color: #000;
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   text-align: center;
   justify-content: center;
   text-decoration: none;
-  font-family: 'Noto Sans', sans-serif;
   font-weight: bold;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
   cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
   margin: 0.5rem 1rem 0.5rem 0;
 }
 
@@ -148,8 +188,8 @@ button.btn-red {
   color: white;
 }
 
-button.btn-green {
-  background-color: var(--color-green);
+button.btn-main {
+  background-color: var(--color-main);
   color: white;
 }
 
@@ -191,6 +231,7 @@ button.btn-logo {
   margin: auto;
   border-radius: 50%;
   max-width: 150px;
+  margin-top: 50px;
 }
 
 .card-info {
@@ -270,4 +311,223 @@ input[type='file'] {
 
 .hidden {
   display: none;
+}
+
+.cardwrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.card-container {
+  background-color: #ededed;
+  border-radius: 12px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  color: #000;
+  padding-top: 30px;
+  padding-bottom: 15px;
+  position: relative;
+  width: 350px;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  margin-right: 25px;
+}
+
+.card-container .delete {
+  color: #c43232;
+  border-radius: 3px;
+  font-size: 25px;
+  font-weight: 900;
+  padding: 3px 7px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.card-container .round {
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card-container .header3 {
+  margin: 5px 0;
+  text-transform: capitalize;
+}
+
+.card-container .header6 {
+  margin: 5px 0;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: var(--color-main);
+}
+
+.friendInput {
+  background-color: #ebebeb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 15%;
+}
+
+.friendInput:focus ~ .cut,
+.friendInput:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.friendInput:focus ~ .cutlong,
+.friendInput:not(:placeholder-shown) ~ .cutlong {
+  transform: translateY(8px);
+}
+
+.usernameInput {
+  background-color: #ebebeb;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 300px;
+}
+
+.userformheader {
+  margin-bottom: -10px;
+}
+
+.usernameInput:focus ~ .cut,
+.usernameInput:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.usernameInput:focus ~ .cutlong,
+.usernameInput:not(:placeholder-shown) ~ .cutlong {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.friendInput:focus ~ .placeholder,
+.friendInput:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.friendInput:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.friendInput:focus ~ .placeholder {
+  color: var(--color-main);
+  font-weight: bold;
+}
+
+.usernameInput:focus ~ .placeholder,
+.usernameInput:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+.usernameInput:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.usernameInput:focus ~ .placeholder {
+  color: var(--color-main);
+  font-weight: bold;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.usernameInputWrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.userContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid#c559a1;
+  border-radius: 12px;
+  padding: 30px;
+}
+
+button.btn-main-anders {
+  background-color: var(--color-main);
+  color: white;
+  position: relative;
+  margin-left: 35%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.cut {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cutlong {
+  background-color: #fff;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 120px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.accept {
+  background-color: #1db34a;
+}
+
+.deny {
+  background-color: #c43232;
+}
+
+.userprofileheader {
+  text-transform: capitalize;
+  margin-bottom: 0px;
 }

@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce';
 export default function Login(props) {
   const { user, username } = useContext(UserContext);
 
-  return <main>{user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}</main>;
+  return <>{user ? !username ? <UsernameForm /> : <SignOutButton /> : <SignInButton />}</>;
 }
 
 function SignInButton() {
@@ -15,9 +15,14 @@ function SignInButton() {
   };
 
   return (
-    <button className="btn-google" onClick={signInWithGoogle}>
-      <img src={'/google.png'} /> Sign in with Google
-    </button>
+    <>
+      <div className="logincontainer">
+        <div className="imgcontainer">
+          <img draggable="false" className="logo" src="Logo.png" />
+          <img draggable="false" className="enter" src="enter.png" onClick={signInWithGoogle} />
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -52,8 +57,15 @@ function UsernameForm() {
       username: formValue,
       photoURL: user.photoURL,
       displayName: user.displayName,
+      email: user.email,
     });
-    batch.set(usernameDoc, { uid: user.uid });
+    batch.set(usernameDoc, {
+      uid: user.uid,
+      username: formValue,
+      photoURL: user.photoURL,
+      displayName: user.displayName,
+      email: user.email,
+    });
 
     // Commit batch to database in firestore
     await batch.commit();
@@ -117,36 +129,37 @@ function UsernameForm() {
   return (
     // When no username
     !username && (
-      <section>
-        <h3>Choose an unique username!</h3>
-        <form onSubmit={onSubmit}>
-          {/* value={formValue} = set the value the user enters to the formValue state */}
-          {/* onChange={onChange} = handler for when the value changes called onChange */}
-          <input
-            name="username"
-            placeholder="A cool username!"
-            value={formValue}
-            onChange={onChange}
-          />
-          {/* Display message when something is fucky wucky */}
-          <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
+      <>
+        <div className="usernameInputWrapper">
+          <div className="userContainer">
+            <h3 className="userformheader">Kies een username</h3>
+            <form onSubmit={onSubmit} autoComplete="off" className="userForm">
+              <div className="input-container ic2">
+                <input
+                  id="name"
+                  type="text"
+                  placeholder=" "
+                  name="username"
+                  className="usernameInput"
+                  onChange={onChange}
+                  value={formValue}
+                />
+                <div className="cutlong"></div>
+                <label htmlFor="name" className="placeholder">
+                  Gebruikersnaam
+                </label>
+              </div>
+              {/* Display message when something is fucky wucky */}
+              <UsernameMessage username={formValue} isValid={isValid} loading={loading} />
 
-          {/* Button will be disabled when form is not valid (!isValid)*/}
-          <button type="submit" className="btn-green" disabled={!isValid}>
-            I want this one!
-          </button>
-
-          {/* Debugging state because it will change very often and is difficult to keep track off */}
-          <h3>Debug State</h3>
-          <div>
-            Username: {formValue}
-            <br />
-            Loading: {loading.toString()}
-            <br />
-            Username Valid: {isValid.toString()}
+              {/* Button will be disabled when form is not valid (!isValid)*/}
+              <button type="submit" className="btn-main-anders" disabled={!isValid}>
+                Kies
+              </button>
+            </form>
           </div>
-        </form>
-      </section>
+        </div>
+      </>
     )
   );
 }
@@ -157,9 +170,9 @@ function UsernameMessage({ username, isValid, loading }) {
   if (loading) {
     return <p>Checking...</p>;
   } else if (isValid) {
-    return <p className="text-success">{username} is available!</p>;
+    return <p className="text-success">{username} is beschikbaar</p>;
   } else if (username && !isValid) {
-    return <p className="text-danger">That username is taken!</p>;
+    return <p className="text-danger">is niet toegestaan</p>;
   } else {
     return <p></p>;
   }
