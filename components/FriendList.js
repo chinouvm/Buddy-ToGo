@@ -94,24 +94,4 @@ function FriendList({ id, users }) {
   }
 }
 
-// if (
-//   requestStatus?.requestPending === false &&
-//   requestStatus?.requestID === getRecipientUser(users, username)
-// ) {
-//   return (
-//     <>
-//       <img src={recipient?.photoURL} />
-//       <p>{recipientUser}</p>
-//     </>
-//   );
-// } else if (requestStatus?.requestID === getRecipientUser(users, username)) {
-//   return (
-//     <div>
-//       <button onClick={onClick}>Accept friend request from {recipient?.username} </button>
-//     </div>
-//   );
-// } else {
-//   <div>Nothing to see here...</div>;
-// }
-
 export default FriendList;

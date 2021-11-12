@@ -90,11 +90,12 @@ div .logincontainer {
 }
 
 .enter {
-  height: 15%;
-  margin-left: 600px;
+  height: 17%;
+  left: 13%;
   align-self: center;
+  position: relative;
   float: right;
-  margin-bottom: 100px;
+  top: -15%;
 }
 
 .enter:hover {
@@ -139,6 +140,12 @@ li.link {
 
 .navbar li {
   border-radius: 50%;
+}
+
+@media only screen and (max-width: 1170px) {
+  .navbar {
+    width: 100vw;
+  }
 }
 
 /* Buttons */
@@ -314,8 +321,54 @@ input[type='file'] {
 }
 
 .cardwrapper {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(2, 25rem);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+
+.map {
+  margin-left: 30%;
+  user-select: none;
+  width: 100vh;
+}
+
+.mapmap {
+  border: solid 5px #bebebe;
+  border-radius: 12px;
+  box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.75);
+}
+
+.columnwrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 25rem);
+  grid-column-gap: 1px;
+  grid-row-gap: 1px;
+}
+
+@media only screen and (max-width: 768px) {
+  .columnwrapper {
+    grid-template-columns: repeat(1, 25rem);
+  }
+
+  .map {
+    margin-left: 0%;
+    user-select: none;
+    width: 140%;
+  }
+}
+
+@media only screen and (max-width: 1170px) {
+  .columnwrapper {
+    grid-template-columns: repeat(1, 25rem);
+  }
+
+  .map {
+    margin-left: -5%;
+    margin-right: 100x;
+    user-select: none;
+    width: 100%;
+  }
 }
 
 .card-container {
@@ -330,7 +383,6 @@ input[type='file'] {
   max-width: 100%;
   text-align: center;
   margin-bottom: 25px;
-  margin-right: 25px;
 }
 
 .card-container .delete {

@@ -170,12 +170,18 @@ function FriendForm() {
           Buddy toevoegen
         </button>
       </form>
-      <h1>Buddy lijst</h1>
-      <div className="cardwrapper">
-        {/* List of Friends */}
-        {friendshipsSnapshot?.docs.map((friendship) => (
-          <FriendList key={friendship.id} id={friendship.id} users={friendship.data().users} />
-        ))}
+      <div className="columnwrapper">
+        <div className="buddylijst">
+          <h1>Buddy lijst</h1>
+          {/* List of Friends */}
+          {friendshipsSnapshot?.docs.map((friendship) => (
+            <FriendList key={friendship.id} id={friendship.id} users={friendship.data().users} />
+          ))}
+        </div>
+        <div className="map">
+          <h1>Map</h1>
+          <img className="mapmap" draggable="false" src="map.png" />
+        </div>
       </div>
     </>
   );
