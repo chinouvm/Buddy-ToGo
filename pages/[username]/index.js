@@ -1,25 +1,27 @@
-import Navbar from '../../components/Navbar';
-import { useRouter } from 'next/router';
-import { useDocument } from 'react-firebase-hooks/firestore';
-import { firestore } from '../../lib/firebase';
+import UserProfile from '../../components/UserProfile';
+import { getUserWithUsername } from '../../lib/firebase';
 
-export default function UserProfilePage() {
-  const router = useRouter();
-  const { username } = router.query;
-  const [userdataSnapshot] = useDocument(firestore.doc(`usernames/${username}`));
+export async function getServerSideProps({ query }) {
+  const { username } = query;
 
-  const userdata = userdataSnapshot?.data();
+  const userDoc = await getUserWithUsername(username);
 
+  // JSON serializable data
+  let user = null;
+
+  if (userDoc) {
+    user = userDoc.data();
+  }
+
+  return {
+    props: { user }, // will be passed to the page component as props
+  };
+}
+
+export default function UserProfilePage({ user }) {
   return (
     <>
-      <Navbar />
-      <div className="box-center">
-        <img src={userdata?.photoURL || '/default.png'} className="card-img-center" />
-        <h1 className="userprofileheader">{userdata?.username}</h1>
-        <p>
-          <i>{userdata?.email || 'Onbekend'}</i>
-        </p>
-      </div>
+      <UserProfile user={user} />
     </>
   );
 }
