@@ -1,4 +1,3 @@
-import React from 'react';
 import InvitePage from '../../components/InvitePage';
 
 export async function getServerSideProps({ query }) {

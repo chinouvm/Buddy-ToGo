@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import React, { useContext } from 'react';
-import { UserContext } from '../lib/context';
 import { firestore } from '../lib/firebase';
 import toast from 'react-hot-toast';
+import { UserContext } from '../lib/context';
 
 export default function InvitePage({ invitename }) {
   const router = useRouter();
