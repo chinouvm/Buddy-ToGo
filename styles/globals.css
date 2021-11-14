@@ -337,6 +337,13 @@ input[type='file'] {
   border: solid 5px #bebebe;
   border-radius: 12px;
   box-shadow: 10px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  width: 100%;
+  height: 60vh;
+}
+
+.locationIcon {
+  font-size: 2.5rem;
+  color: #c559a1;
 }
 
 .columnwrapper {

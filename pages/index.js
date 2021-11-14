@@ -7,6 +7,7 @@ import Login from './login';
 import Navbar from '../components/Navbar';
 import toast from 'react-hot-toast';
 import FriendList from '../components/FriendList';
+import Map from '../components/Map';
 
 export default function Home() {
   const { username } = useContext(UserContext);
@@ -180,7 +181,7 @@ function FriendForm() {
         </div>
         <div className="map">
           <h1>Map</h1>
-          <img className="mapmap" draggable="false" src="map.png" />
+          <Map />
         </div>
       </div>
     </>
