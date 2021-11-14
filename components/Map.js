@@ -7,12 +7,11 @@ const Map = ({ center, zoom }) => {
 
   const currentLat = location.coordinates.lat;
   const currentLng = location.coordinates.lng;
-  console.log(currentLat, currentLng);
 
   return (
     <div className="mapmap">
       <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyD4_-W20ugg4nLcCVO9CTN-zAt8SvvtpQg' }}
+        bootstrapURLKeys={{ key: process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY }}
         defaultCenter={center}
         defaultZoom={zoom}
       >
