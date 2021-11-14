@@ -3,7 +3,6 @@ import useGeoLocation from '../lib/useGeoLocation';
 import UserMarker from './UserMarker';
 
 const Map = ({ center, zoom }) => {
-  // Load Map Component
   const location = useGeoLocation();
 
   const currentLat = location.coordinates.lat;
